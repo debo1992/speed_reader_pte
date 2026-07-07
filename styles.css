@@ -157,17 +157,17 @@ button.primary {
   font-size: clamp(2rem, 4vw, 4.25rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-}
-
-.word-display span {
-  display: inline-block;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .word-display .highlight {
-  border-radius: 6px;
-  background: rgba(248, 113, 113, 0.2);
-  color: #fee2e2;
-  padding: 0 4px;
+  color: #ff3b3b;
+  font-weight: 800;
+  background: transparent;
+  padding: 0;
 }
 
 .reader-footer {
