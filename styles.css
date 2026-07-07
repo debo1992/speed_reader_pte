@@ -12,11 +12,12 @@
 body {
   margin: 0;
   min-height: 100vh;
-  padding: 24px;
+  padding: 16px;
 }
 
 .app-shell {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -51,6 +52,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: stretch;
 }
 
 .topic-button {
@@ -60,6 +62,9 @@ body {
   padding: 10px 14px;
   border-radius: 999px;
   font-size: 0.95rem;
+  flex: 1 1 140px;
+  min-width: 120px;
+  text-align: center;
 }
 
 .topic-button:hover:not(:disabled) {
@@ -195,9 +200,9 @@ button.primary {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: #D3DFCF;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  word-break: normal;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .word-display .highlight {
@@ -222,6 +227,74 @@ button.primary {
 }
 
 @media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+
+  .app-shell {
+    padding: 0 8px;
+  }
+
+  .hero {
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .topic-buttons {
+    justify-content: center;
+  }
+
+  .topic-button {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+  }
+
+  .control-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wpm-control {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .wpm-control input[type="range"] {
+    width: 100%;
+  }
+
+  input[type="number"] {
+    width: 100%;
+  }
+
+  .button-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  textarea {
+    min-height: 200px;
+  }
+
+  .reader-card {
+    padding: 22px;
+  }
+
+  .word-display {
+    min-height: 100px;
+    font-size: clamp(1.75rem, 8vw, 3rem);
+    padding: 0 8px;
+  }
+
+  .reader-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   button {
     flex: 1 1 100%;
   }
