@@ -5,8 +5,8 @@
 :root {
   color-scheme: dark;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0b3d24;
-  color: #e2e8f0;
+  background: #2A3A25;
+  color: #D3DFCF;
 }
 
 body {
@@ -75,7 +75,7 @@ textarea {
   border-radius: 18px;
   border: 1px solid rgba(148, 163, 184, 0.2);
   background: rgba(15, 23, 42, 0.95);
-  color: #e2e8f0;
+  color: #D3DFCF;
   padding: 16px;
   resize: vertical;
   font-size: 1rem;
@@ -100,12 +100,23 @@ input[type="number"] {
   border-radius: 14px;
   border: 1px solid rgba(148, 163, 184, 0.2);
   background: rgba(15, 23, 42, 0.95);
-  color: #e2e8f0;
+  color: #D3DFCF;
   padding: 10px 12px;
 }
 
 input[type="range"] {
   width: 100%;
+}
+
+.wpm-control {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.ramp-row {
+  justify-content: stretch;
+  align-items: center;
 }
 
 .button-row {
@@ -158,7 +169,7 @@ button.primary {
   font-size: clamp(2rem, 4vw, 4.25rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #D3DFCF;
   white-space: nowrap;
   overflow-wrap: normal;
   word-break: normal;

@@ -1,7 +1,8 @@
 const articleInput = document.getElementById("articleInput");
 const wpmInput = document.getElementById("wpmInput");
-const wpmRange = document.getElementById("wpmRange");
+const startRange = document.getElementById("startRange");
 const rampEndInput = document.getElementById("rampEndInput");
+const endRange = document.getElementById("endRange");
 const startButton = document.getElementById("startButton");
 const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
@@ -173,21 +174,31 @@ function resetReading() {
 }
 
 wpmInput.addEventListener("input", () => {
-  wpmRange.value = wpmInput.value;
+  startRange.value = wpmInput.value;
   const newStart = Number(wpmInput.value) || 300;
   if (Number(rampEndInput.value) < newStart) {
     rampEndInput.value = newStart;
+    endRange.value = newStart;
   }
   rampEndInput.min = newStart;
 });
 
-wpmRange.addEventListener("input", () => {
-  wpmInput.value = wpmRange.value;
-  const newStart = Number(wpmRange.value) || 300;
+startRange.addEventListener("input", () => {
+  wpmInput.value = startRange.value;
+  const newStart = Number(startRange.value) || 300;
   if (Number(rampEndInput.value) < newStart) {
     rampEndInput.value = newStart;
+    endRange.value = newStart;
   }
   rampEndInput.min = newStart;
+});
+
+rampEndInput.addEventListener("input", () => {
+  endRange.value = rampEndInput.value;
+});
+
+endRange.addEventListener("input", () => {
+  rampEndInput.value = endRange.value;
 });
 
 startButton.addEventListener("click", () => {

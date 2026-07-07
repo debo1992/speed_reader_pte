@@ -20,21 +20,20 @@
 
     <section class="controls">
       <div class="control-row">
-        <label for="wpmInput">Speed</label>
+        <label for="wpmInput">Start speed</label>
         <div class="wpm-control">
           <input id="wpmInput" type="number" min="100" max="1500" step="50" value="300" />
           <span>WPM</span>
-        </div>
-      </div>
-      <div class="control-row ramp-row">
-        <div class="ramp-control">
-          <label for="rampEndInput">End speed</label>
-          <input id="rampEndInput" type="number" min="100" max="1500" step="50" value="300" />
-          <span>WPM</span>
+          <input id="startRange" type="range" min="100" max="1500" step="50" value="300" />
         </div>
       </div>
       <div class="control-row">
-        <input id="wpmRange" type="range" min="100" max="1500" step="50" value="300" />
+        <label for="rampEndInput">End speed</label>
+        <div class="wpm-control">
+          <input id="rampEndInput" type="number" min="100" max="1500" step="50" value="300" />
+          <span>WPM</span>
+          <input id="endRange" type="range" min="100" max="1500" step="50" value="300" />
+        </div>
       </div>
       <div class="button-row">
         <button id="startButton" class="primary">Start</button>
