@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed Reader</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <h1>Speed Reader</h1>
+      <p>Paste your article, choose a reading speed, and train your eyes with a flashing word reader.</p>
+    </header>
+
+    <section class="input-area">
+      <label for="articleInput">Article text</label>
+      <textarea id="articleInput" placeholder="Paste your article here..."></textarea>
+    </section>
+
+    <section class="controls">
+      <div class="control-row">
+        <label for="wpmInput">Speed</label>
+        <div class="wpm-control">
+          <input id="wpmInput" type="number" min="100" max="1500" step="50" value="300" />
+          <span>WPM</span>
+        </div>
+      </div>
+      <div class="control-row">
+        <input id="wpmRange" type="range" min="100" max="1500" step="50" value="300" />
+      </div>
+      <div class="button-row">
+        <button id="startButton" class="primary">Start</button>
+        <button id="pauseButton" disabled>Pause</button>
+        <button id="resetButton" disabled>Reset</button>
+      </div>
+    </section>
+
+    <section class="reader-panel">
+      <div class="reader-card">
+        <div id="wordDisplay" class="word-display">Your current word will appear here.</div>
+        <div class="reader-footer">
+          <span id="progressText">0 / 0</span>
+          <span id="statusText">Ready</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
