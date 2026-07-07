@@ -26,6 +26,17 @@
           <span>WPM</span>
         </div>
       </div>
+      <div class="control-row ramp-row">
+        <label class="checkbox-label">
+          <input id="autoRampInput" type="checkbox" />
+          Auto-ramp speed
+        </label>
+        <div class="ramp-control">
+          <label for="rampMultiplierInput">End speed</label>
+          <input id="rampMultiplierInput" type="number" min="1.1" max="2.0" step="0.1" value="1.2" />
+          <span>x</span>
+        </div>
+      </div>
       <div class="control-row">
         <input id="wpmRange" type="range" min="100" max="1500" step="50" value="300" />
       </div>
@@ -41,6 +52,7 @@
         <div id="wordDisplay" class="word-display">Your current word will appear here.</div>
         <div class="reader-footer">
           <span id="progressText">0 / 0</span>
+          <span id="effectiveWpmText">300 WPM</span>
           <span id="statusText">Ready</span>
         </div>
       </div>
