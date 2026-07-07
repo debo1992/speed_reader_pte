@@ -35,10 +35,35 @@ body {
   line-height: 1.65;
 }
 
+.topic-section,
 .input-area,
 .controls,
 .reader-panel {
   margin-bottom: 20px;
+}
+
+.topic-section h2 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+.topic-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.topic-button {
+  background: rgba(56, 189, 248, 0.16);
+  color: #f8fafc;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.topic-button:hover:not(:disabled) {
+  background: rgba(56, 189, 248, 0.28);
 }
 
 label {
