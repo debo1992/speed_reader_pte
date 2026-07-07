@@ -1,8 +1,7 @@
 const articleInput = document.getElementById("articleInput");
 const wpmInput = document.getElementById("wpmInput");
 const wpmRange = document.getElementById("wpmRange");
-const autoRampInput = document.getElementById("autoRampInput");
-const rampMultiplierInput = document.getElementById("rampMultiplierInput");
+const rampEndInput = document.getElementById("rampEndInput");
 const startButton = document.getElementById("startButton");
 const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
@@ -16,7 +15,7 @@ let index = 0;
 let timeoutId = null;
 let isPaused = false;
 let startWpm = 300;
-let targetWpm = 360;
+let targetWpm = 300;
 
 function normalizeText(text) {
   return text
@@ -81,13 +80,9 @@ function setControlsPlaying(playing) {
 
 function getCurrentWpm() {
   const baseWpm = Number(startWpm) || 300;
-  if (!autoRampInput.checked || words.length <= 1) {
-    return baseWpm;
-  }
-
-  const multiplier = Number(rampMultiplierInput.value) || 1.2;
+  const endWpm = Math.max(baseWpm, Number(rampEndInput.value) || baseWpm);
   const progress = Math.min(1, index / Math.max(1, words.length - 1));
-  return Math.round(baseWpm + baseWpm * (multiplier - 1) * progress);
+  return Math.round(baseWpm + (endWpm - baseWpm) * progress);
 }
 
 function getDelay() {
@@ -130,7 +125,7 @@ function startReading() {
   }
 
   startWpm = Number(wpmInput.value) || 300;
-  targetWpm = startWpm * (Number(rampMultiplierInput.value) || 1.2);
+  targetWpm = Math.max(startWpm, Number(rampEndInput.value) || startWpm);
 
   if (isPaused) {
     isPaused = false;
@@ -179,10 +174,20 @@ function resetReading() {
 
 wpmInput.addEventListener("input", () => {
   wpmRange.value = wpmInput.value;
+  const newStart = Number(wpmInput.value) || 300;
+  if (Number(rampEndInput.value) < newStart) {
+    rampEndInput.value = newStart;
+  }
+  rampEndInput.min = newStart;
 });
 
 wpmRange.addEventListener("input", () => {
   wpmInput.value = wpmRange.value;
+  const newStart = Number(wpmRange.value) || 300;
+  if (Number(rampEndInput.value) < newStart) {
+    rampEndInput.value = newStart;
+  }
+  rampEndInput.min = newStart;
 });
 
 startButton.addEventListener("click", () => {
