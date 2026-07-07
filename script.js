@@ -293,7 +293,7 @@ articleInput.addEventListener("input", () => {
   }
 });
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   renderEssayTopicButtons();
   updateDisplay();
 });
